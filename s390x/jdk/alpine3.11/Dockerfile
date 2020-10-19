@@ -17,7 +17,7 @@ RUN set -eux; \
 	; \
 	rm -rf /var/lib/apt/lists/*
 	
-RUN apt-get install -y --no-install-recommmends curl
+RUN apt-get install curl
 
 ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
