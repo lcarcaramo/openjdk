@@ -1,4 +1,4 @@
-FROM docker pull quay.io/ibmz/ubuntu:18.04
+FROM docker pull quay.io/ibmz/ubuntu
 
 RUN apk add --no-cache java-cacerts
 
