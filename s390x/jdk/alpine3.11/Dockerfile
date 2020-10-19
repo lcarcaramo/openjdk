@@ -3,7 +3,7 @@ FROM quay.io/ibmz/alpine:3.11
 RUN apk add --no-cache java-cacerts
 
 ENV JAVA_HOME /opt/openjdk-11
-ENV PATH $PATH:$JAVA_HOME/bin
+ENV PATH $JAVA_HOME/bin:$PATH
 
 # https://jdk.java.net/
 # >
@@ -41,7 +41,7 @@ RUN set -eux; \
 # see "java-cacerts" package installed above (which maintains "/etc/ssl/certs/java/cacerts" for us)
 	rm -rf "$JAVA_HOME/lib/security/cacerts"; \
 	ln -sT /etc/ssl/certs/java/cacerts "$JAVA_HOME/lib/security/cacerts"; \
-	echo $PATH; \
+	cd $JAVA_HOME/bin; ls; \
 	\
 # https://github.com/docker-library/openjdk/issues/212#issuecomment-420979840
 # https://openjdk.java.net/jeps/341
