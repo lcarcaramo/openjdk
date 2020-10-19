@@ -57,12 +57,11 @@ RUN set -eux; \
 # see "java-cacerts" package installed above (which maintains "/etc/ssl/certs/java/cacerts" for us)
 	rm -rf "$JAVA_HOME/lib/security/cacerts"; \
 	ln -sT /etc/ssl/certs/java/cacerts "$JAVA_HOME/lib/security/cacerts"; \
-	cd $JAVA_HOME/bin; ls; \
 	\
 # https://github.com/docker-library/openjdk/issues/212#issuecomment-420979840
 # https://openjdk.java.net/jeps/341
-	java -Xshare:dump; \
-	\
+	#java -Xshare:dump; \
+	#\
 # basic smoke test
 	fileEncoding="$(echo 'System.out.println(System.getProperty("file.encoding"))' | jshell -s -)"; [ "$fileEncoding" = 'UTF-8' ]; rm -rf ~/.java; \
 	javac --version; \
