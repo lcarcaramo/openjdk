@@ -29,7 +29,7 @@ ENV JAVA_VERSION 11.0.8+10
 
 RUN set -eux; \
 	\
-	arch="$(apk --print-arch)"; \
+	arch="$(dpkg --print-architecture)"; \
 # this "case" statement is generated via "update.sh"
 	case "$arch" in \
 # s390x
