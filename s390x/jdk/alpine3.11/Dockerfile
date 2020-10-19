@@ -25,7 +25,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 # >
 # > Java Development Kit builds, from Oracle
 # >
-ENV JAVA_VERSION 11.0.8+10
+ENV JAVA_VERSION 11.0.8
 # "For Alpine Linux, builds are produced on a reduced schedule and may not be in sync with the other platforms."
 
 RUN set -eux; \
@@ -60,8 +60,8 @@ RUN set -eux; \
 	\
 # https://github.com/docker-library/openjdk/issues/212#issuecomment-420979840
 # https://openjdk.java.net/jeps/341
-	#java -Xshare:dump; \
-	#\
+	java -Xshare:dump; \
+	\
 # basic smoke test
 	fileEncoding="$(echo 'System.out.println(System.getProperty("file.encoding"))' | jshell -s -)"; [ "$fileEncoding" = 'ANSI_X3.4-1968' ]; rm -rf ~/.java; \
 	javac --version; \
