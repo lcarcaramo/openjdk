@@ -19,8 +19,8 @@ RUN set -eux; \
 	case "$arch" in \
 # s390x
 		s390x) \
-			downloadUrl=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.8%2B10/OpenJDK11U-jdk_s390x_linux_hotspot_11.0.8_10.tar.gz; \
-			downloadSha256=5619e1437c7cd400169eb7f1c831c2635fdb2776a401147a2fc1841b01f83ed6; \
+			downloadUrl=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.8%2B10_openj9-0.21.0/OpenJDK11U-jdk_s390x_linux_openj9_11.0.8_10_openj9-0.21.0.tar.gz; \
+			downloadSha256=5e89692057fb8dfcb8e215fd3917b721fdb721c1eeea2b14948f4782413846bb; \
 			;; \
 # fallback
 		*) echo >&2 "error: unsupported architecture: '$arch'"; exit 1 ;; \
