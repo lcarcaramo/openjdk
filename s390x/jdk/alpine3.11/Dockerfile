@@ -16,6 +16,8 @@ RUN set -eux; \
 		fontconfig libfreetype6 \
 	; \
 	rm -rf /var/lib/apt/lists/*
+	
+RUN apt-get install wget -y --no-install-recommends
 
 ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
