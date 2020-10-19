@@ -6,6 +6,7 @@ RUN set -eux; \
 		bzip2 \
 		unzip \
 		xz-utils \
+		curl \
 		\
 # utilities for keeping Debian and OpenJDK CA certificates in sync
 		ca-certificates p11-kit \
@@ -16,8 +17,6 @@ RUN set -eux; \
 		fontconfig libfreetype6 \
 	; \
 	rm -rf /var/lib/apt/lists/*
-	
-RUN apt-get install curl
 
 ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
