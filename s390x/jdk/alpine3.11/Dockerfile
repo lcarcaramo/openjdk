@@ -1,6 +1,6 @@
 FROM quay.io/ibmz/ubuntu:18.04
 
-RUN apt-get install ca-certificates-java
+RUN dpkg --purge --force-depends ca-certificates-java & apt-get install ca-certificates-java
 
 ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
