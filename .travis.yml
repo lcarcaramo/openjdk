@@ -1,4 +1,4 @@
 arch: s390x
 services:
   - docker
-script: docker login quay.io -u $ROBOT -p $ROBOT_TOKEN && docker build s390x/jdk/ubuntu:18.04 --tag quay.io/ibmz/openjkd:11.0.8 && docker push quay.io/ibmz/openjkd
+script: docker login quay.io -u $ROBOT -p $ROBOT_TOKEN && docker build s390x/jdk/ubuntu:18.04 --tag quay.io/ibmz/openjdk:11.0.8 && docker push quay.io/ibmz/openjdk
