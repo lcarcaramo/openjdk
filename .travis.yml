@@ -1,4 +1,4 @@
 arch: s390x
 services:
   - docker
-script: docker login quay.io -u $USER -p $USER_TOKEN && docker build s390x/jdk/alpine3.11/Dockerfile --tag https://quay.io/repository/lcarcaramo/openjkd && docker push https://quay.io/repository/lcarcaramo/openjkd
+script: docker login quay.io -u $ROBOT -p $ROBOT_TOKEN && docker build s390x/jdk/alpine3.11/Dockerfile --tag https://quay.io/repository/lcarcaramo/openjkd && docker push https://quay.io/repository/lcarcaramo/openjkd
