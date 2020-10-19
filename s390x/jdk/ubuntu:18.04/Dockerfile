@@ -1,4 +1,4 @@
-FROM quay.io/ibmz/ubuntu:18.04
+FROM quay.io/ibmz/ubuntu:20.04
 
 RUN set -eux; \
 	apt-get update; \
