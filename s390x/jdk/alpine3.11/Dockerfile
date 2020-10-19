@@ -6,7 +6,7 @@ RUN set -eux; \
 		bzip2 \
 		unzip \
 		xz-utils \
-		curl \
+		wget \
 		\
 # utilities for keeping Debian and OpenJDK CA certificates in sync
 		ca-certificates p11-kit \
@@ -42,7 +42,7 @@ RUN set -eux; \
 		*) echo >&2 "error: unsupported architecture: '$arch'"; exit 1 ;; \
 	esac; \
 	\
-	curl "$downloadUrl" > openjdk.tgz; \
+	wget -O openjdk.tgz "$downloadUrl"; \
 	echo "$downloadSha256 *openjdk.tgz" | sha256sum -c -; \
 	\
 	mkdir -p "$JAVA_HOME"; \
