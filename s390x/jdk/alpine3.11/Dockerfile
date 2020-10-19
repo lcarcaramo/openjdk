@@ -41,6 +41,7 @@ RUN set -eux; \
 # see "java-cacerts" package installed above (which maintains "/etc/ssl/certs/java/cacerts" for us)
 	rm -rf "$JAVA_HOME/lib/security/cacerts"; \
 	ln -sT /etc/ssl/certs/java/cacerts "$JAVA_HOME/lib/security/cacerts"; \
+	which java; \
 	\
 # https://github.com/docker-library/openjdk/issues/212#issuecomment-420979840
 # https://openjdk.java.net/jeps/341
