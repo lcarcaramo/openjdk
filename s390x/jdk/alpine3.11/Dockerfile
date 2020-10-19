@@ -1,15 +1,15 @@
-FROM alpine:3.12
+FROM ibmz/alpine:3.12
 
 RUN apk add --no-cache java-cacerts
 
-ENV JAVA_HOME /opt/openjdk-16
+ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
 
 # https://jdk.java.net/
 # >
 # > Java Development Kit builds, from Oracle
 # >
-ENV JAVA_VERSION 16-ea+14
+ENV JAVA_VERSION 11.0.8+10
 # "For Alpine Linux, builds are produced on a reduced schedule and may not be in sync with the other platforms."
 
 RUN set -eux; \
@@ -17,10 +17,10 @@ RUN set -eux; \
 	arch="$(apk --print-arch)"; \
 # this "case" statement is generated via "update.sh"
 	case "$arch" in \
-# amd64
-		x86_64) \
-			downloadUrl=https://download.java.net/java/early_access/alpine/14/binaries/openjdk-16-ea+14_linux-x64-musl_bin.tar.gz; \
-			downloadSha256=6d6943f9c350ca20fd2892e024c363e538ab4a2c1aeaceeab4450a47cbaca54c; \
+# s390x
+		s390x) \
+			downloadUrl=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.8%2B10/OpenJDK11U-jdk_s390x_linux_hotspot_11.0.8_10.tar.gz; \
+			downloadSha256=d206a63cd719b65717f7f20ee3fe49f0b8b2db922986b4811c828db57212699e; \
 			;; \
 # fallback
 		*) echo >&2 "error: unsupported architecture: '$arch'"; exit 1 ;; \
