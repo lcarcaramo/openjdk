@@ -3,7 +3,7 @@ FROM quay.io/ibmz/alpine:3.11
 RUN apk add --no-cache java-cacerts
 
 ENV JAVA_HOME /opt/openjdk-11
-ENV PATH $JAVA_HOME/bin:$PATH
+ENV PATH $PATH:$JAVA_HOME/bin
 
 # https://jdk.java.net/
 # >
