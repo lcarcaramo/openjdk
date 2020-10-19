@@ -16,8 +16,6 @@ RUN set -eux; \
 		fontconfig libfreetype6 \
 	; \
 	rm -rf /var/lib/apt/lists/*
-	
-RUN apt-get install wget -y --no-install-recommends
 
 ENV JAVA_HOME /opt/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
@@ -43,7 +41,7 @@ RUN set -eux; \
 		*) echo >&2 "error: unsupported architecture: '$arch'"; exit 1 ;; \
 	esac; \
 	\
-	wget -O openjdk.tgz "$downloadUrl"; \
+	curl -O openjdk.tgz "$downloadUrl"; \
 	echo "$downloadSha256 *openjdk.tgz" | sha256sum -c -; \
 	\
 	mkdir -p "$JAVA_HOME"; \
