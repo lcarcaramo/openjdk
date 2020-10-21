@@ -9,7 +9,7 @@ env:
     - REPO="quay.io/ibmz/openjdk"
     - TAG="$REPO:11.0.8"
 before_script: 
-  - cd $TEST_DIR && chmod +x $TEST_SCRIPT
+  - cd $TEST_DIR && chmod +x $TEST_SCRIPT && cd
   - docker login quay.io -u $ROBOT -p $ROBOT_TOKEN
 script: 
   - docker build $BUILD_DIR --tag $TAG
