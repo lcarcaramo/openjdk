@@ -3,13 +3,13 @@ services:
   - docker
 env:
   global:
-    - TEST_DIR="s390x/test/jdk/ubuntu20.04"
+    - TEST_DIR="$PWD/s390x/test/jdk/ubuntu20.04"
     - TEST_SCRIPT="test.sh"
-    - BUILD_DIR="s390x/jdk/ubuntu12.04"
+    - BUILD_DIR="$PWD/s390x/jdk/ubuntu12.04"
     - REPO="quay.io/ibmz/openjdk"
     - TAG="$REPO:11.0.8"
 before_script: 
-  - cd $TEST_DIR && chmod +x $TEST_SCRIPT && cd
+  - cd $TEST_DIR && chmod +x $TEST_SCRIPT
   - docker login quay.io -u $ROBOT -p $ROBOT_TOKEN
 script: 
   - docker build $BUILD_DIR --tag $TAG
