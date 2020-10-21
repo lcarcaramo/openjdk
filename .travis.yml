@@ -1,5 +1,4 @@
 arch: s390x
-language: bash
 services:
   - docker
 before_script: chmod +x s390x/test/jdk/ubuntu20.04/test.sh
