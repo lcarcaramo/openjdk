@@ -1,5 +1,11 @@
 arch: s390x
 services:
   - docker
-before_script: chmod +x s390x/test/jdk/ubuntu20.04/test.sh
-script: docker login quay.io -u $ROBOT -p $ROBOT_TOKEN && docker build s390x/jdk/ubuntu12.04 --tag quay.io/ibmz/openjdk:11.0.8 && cd s390x/test/jdk/ubuntu20.04 && bash test.sh && docker push quay.io/ibmz/openjdk
+before_script: 
+  - chmod +x s390x/test/jdk/ubuntu20.04/test.sh
+  - docker login quay.io -u $ROBOT -p $ROBOT_TOKEN
+script: 
+  - docker build s390x/jdk/ubuntu12.04 --tag quay.io/ibmz/openjdk:11.0.8
+  - cd s390x/test/jdk/ubuntu20.04 && bash test.sh 
+after_script:
+  - docker push quay.io/ibmz/openjdk
