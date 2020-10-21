@@ -1,8 +1,8 @@
 arch: s390x
 services:
   - docker
-global:
-  env:
+env:
+  global:
     - TEST_DIR="s390x/test/jdk/ubuntu20.04"
     - TEST_SCRIPT="test.sh"
     - BUILD_DIR="s390x/jdk/ubuntu12.04"
