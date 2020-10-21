@@ -1,11 +1,17 @@
 arch: s390x
 services:
   - docker
+env:
+  - TEST_DIR=s390x/test/jdk/ubuntu20.04
+  - TEST_SCRIPT=test.sh
+  - BUILD_DIR=s390x/jdk/ubuntu12.04
+  - REPO=quay.io/ibmz/openjdk
+  - TAG=$REPO:11.0.8
 before_script: 
-  - chmod +x s390x/test/jdk/ubuntu20.04/test.sh
+  - chmod +x $TEST_DIR/$TEST+SCRIPT
   - docker login quay.io -u $ROBOT -p $ROBOT_TOKEN
 script: 
-  - docker build s390x/jdk/ubuntu12.04 --tag quay.io/ibmz/openjdk:11.0.8
-  - cd s390x/test/jdk/ubuntu20.04 && bash test.sh 
+  - docker build $BUILD_DIR --tag $TAG
+  - cd TEST_DIR && bash $TEST_SCRIPT 
 after_script:
-  - docker push quay.io/ibmz/openjdk
+  - docker push $REPO
