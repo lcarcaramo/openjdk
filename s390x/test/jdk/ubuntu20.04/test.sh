@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 export ANSI_YELLOW="\e[1;33m"
 export ANSI_GREEN="\e[32m"
 export ANSI_RESET="\e[0m"
