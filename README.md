@@ -1,8 +1,10 @@
 # Tags
-> _Built from [`quay.io/ibmz/ubuntu:20.04`](https://quay.io/repository/ibmz/ubuntu?tab=info)_
--	[`11.0.8`](https://github.com/lcarcaramo/openjdk/blob/master/s390x/jdk/ubuntu12.04/Dockerfile) - [![Build Status](https://travis-ci.com/lcarcaramo/openjdk.svg?branch=master)](https://travis-ci.com/lcarcaramo/openjdk)
+> _Built from [`quay.io/ibm/ubuntu:20.04`](https://quay.io/repository/ibm/ubuntu?tab=info)_
+-	`11.0.8` - [![Build Status](https://travis-ci.com/lcarcaramo/openjdk.svg?branch=master)](https://travis-ci.com/lcarcaramo/openjdk)
 
-# What is OpenJDK?
+### __[Original Source Code](https://github.com/docker-library/openjdk)__
+
+# OpenJDK
 
 OpenJDK (Open Java Development Kit) is a free and open source implementation of the Java Platform, Standard Edition (Java SE). OpenJDK is the official reference implementation of Java SE since version 7.
 
@@ -19,7 +21,7 @@ Java is a registered trademark of Oracle and/or its affiliates.
 The most straightforward way to use this image is to use a Java container as both the build and runtime environment. In your `Dockerfile`, writing something along the lines of the following will compile and run your project:
 
 ```dockerfile
-FROM quay.io/ibmz/openjdk:11.0.8
+FROM quay.io/ibm/openjdk:11.0.8
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN javac Main.java
